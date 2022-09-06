@@ -1,0 +1,35 @@
+
+<div class="table">
+  <div class="header">
+    <h1>CITRIX</h1>
+    <input type="text" class="form-control" name="searchString" placeholder="Search" [(ngModel)]="searchString"/>
+  </div>
+    
+  <div>
+    <h2 class="text">Customers</h2>
+    <div> </div>
+    <table class="table-bordered">
+      <thead>
+        <tr>
+          <th class="text"><a (click)="sortedcolumn = 'Name'">Name <p [innerHTML]="icon"></p></a></th>
+          <th class="text"><a (click)="sortedcolumn = 'Email'">Email <p [innerHTML]="icon"></p></a></th>
+          <th class="text"><a (click)="sortedcolumn = 'Location'">Location <p [innerHTML]="icon"></p></a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of values | sort : sortedcolumn | filter : searchString | paginate: { itemsPerPage: count, currentPage: page}">
+          <td>{{e.Name}}</td>
+          <td>{{e.Email}}</td>
+          <td>{{e.Location}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!--Including the pagination control.-->
+  <div class="text-pagination">
+      <pagination-controls (pageChange)="page = $event" class="page"></pagination-controls>
+    </div>
+  </div>
+
+  
