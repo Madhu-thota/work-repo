@@ -15,6 +15,7 @@ export class AppComponent {
   searchString : any; 
   sortedcolumn : any;
   icon = "&#8645;";
+  searchVal : any;
   ngOnInit(){
     this.values=[
       {
@@ -70,7 +71,24 @@ export class AppComponent {
     ];
   }
   displayedColumns: any[] = ['Name', 'Email', 'Location'];
+  sortByAsc : any;
+  booleanValue : any=false;
+
+  onsort(colName : any, boolean : any){
+    if(boolean == true){
+      this.values.sort((a : any, b: any) => a[colName] < b[colName] ? 1 :
+      a[colName] > b[colName] ? -1 : 0);
+      this.booleanValue = !this.booleanValue;
+    }
+    else{
+      this.values.sort((a : any, b: any) => a[colName] > b[colName] ? 1 :
+      a[colName] < b[colName] ? -1 : 0);
+      this.booleanValue = !this.booleanValue;
+    }
+  }
+
   // Pagination parameters.
   page: number = 1;
   count: number = 4;
+  value : any[]=[];
 }
