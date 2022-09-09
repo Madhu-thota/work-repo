@@ -1,23 +1,23 @@
 
 <div class="table">
   <div class="header">
-    <h1>CITRIX</h1>
-    <input type="text" class="form-control" name="searchString" placeholder="Search" [(ngModel)]="searchString"/>
+    <h1 class="heading">CITRIX</h1>
+    <input type="text" class="form-control" name="searchString" placeholder="Search..." [(ngModel)]="searchString"/>
   </div>
     
   <div>
     <h2 class="text">Customers</h2>
     <div> </div>
-    <table class="table-bordered">
+    <table class="table-bordered" matSort>
       <thead>
         <tr>
-          <th class="text"><a (click)="sortedcolumn = 'Name'">Name <p [innerHTML]="icon"></p></a></th>
-          <th class="text"><a (click)="sortedcolumn = 'Email'">Email <p [innerHTML]="icon"></p></a></th>
-          <th class="text"><a (click)="sortedcolumn = 'Location'">Location <p [innerHTML]="icon"></p></a></th>
+          <th class="text"><a (click)="onsort('Name', booleanValue)" mat-sort-header="Name">Name <p [innerHTML]="icon"></p></a></th>
+          <th class="text"><a (click)="onsort('Email', booleanValue)" mat-sort-header="Email">Email <p [innerHTML]="icon"></p></a></th>
+          <th class="text"><a (click)="onsort('Location', booleanValue)" mat-sort-header="Location">Location <p [innerHTML]="icon"></p></a></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let e of values | sort : sortedcolumn | filter : searchString | paginate: { itemsPerPage: count, currentPage: page}">
+        <tr *ngFor="let e of values | filter : searchString | paginate: { itemsPerPage: count, currentPage: page}">
           <td>{{e.Name}}</td>
           <td>{{e.Email}}</td>
           <td>{{e.Location}}</td>
@@ -25,10 +25,12 @@
       </tbody>
     </table>
   </div>
-  
-  <!--Including the pagination control.-->
-  <div class="text-pagination">
-      <pagination-controls (pageChange)="page = $event" class="page"></pagination-controls>
+    <div class="text-right">
+      <ngb-pagination
+      [(page)]="page"
+      [pageSize]="count"
+      [collectionSize]="values.length" >
+      </ngb-pagination>
     </div>
   </div>
 
