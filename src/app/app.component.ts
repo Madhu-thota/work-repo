@@ -71,7 +71,6 @@ export class AppComponent {
     ];
   }
   displayedColumns: any[] = ['Name', 'Email', 'Location'];
-  sortByAsc : any;
   booleanValue : any=false;
 
   onsort(colName : any, boolean : any){
