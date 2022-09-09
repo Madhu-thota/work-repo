@@ -7,13 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { SortPipe } from './shared/pipes/sort.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SortPipe
   ],
   imports: [
     BrowserModule,
@@ -23,9 +22,11 @@ import { SortPipe } from './shared/pipes/sort.pipe';
     MatPaginatorModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
 
