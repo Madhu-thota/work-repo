@@ -19,8 +19,8 @@ table {
 
 table{
     width : 70%;
-    height : 50%;
-    margin-left: 25px;
+    height : 40%;
+    margin-left: 34px;
 }
 h1, h2{
     font-weight: bold;
@@ -28,6 +28,8 @@ h1, h2{
 }
 h1{
     background-color: peachpuff;
+    margin-top: 12px;
+    margin-left: 10px;
 }
 .search{
     display: absolute;
@@ -43,7 +45,7 @@ h1{
 }
 .table{
     width : 40%;
-    height : 30%;
+    height : 70%;
     border: 1px solid black;
 }
 .table-bordered{
@@ -59,23 +61,12 @@ table, th, td {
 .table{
     margin-left: auto; 
     margin-right: auto;
-    height: 45%;
+    height: 48%;
   }
-.text-pagination{
-   color : blue;
-   width : 90%;
-   height : 12%;
-   border: 2px solid black;
-   border-collapse: collapse;
-   border-color: rgb(94, 94, 156);
-   margin-left: 25px;
-   margin-bottom: 1px;
-   margin-top: 7px;
-   border-radius: 5px;
-}
+
  .text{
     color : black;
-    margin-left: 25px;
+    margin-left: 30px;
     margin-top: 16px;
  }
  input{
@@ -83,21 +74,14 @@ table, th, td {
     width: 35%;
     height: 5%;
     margin-right: 10px;
-    margin-top: 5px;
+    margin-top: 13px;
  }
  .header{
     display: flex;
     background-color: peachpuff;
     border: 2px solid peachpuff;
  }
- .page{
-  border-radius: 100px;
-  padding : 0;
-  display: flex;
-  column-gap : 200%;
-  margin : 0;
-  text-align: center;
-}
+
 .text{
   cursor: pointer;
 }
@@ -108,4 +92,13 @@ p{
   color : black;
   margin-left: 2px;
   padding: 1px;
+}
+.heading{
+  margin-top: 15px;
+}
+  .text-right{
+    font-size : 14px;
+    text-align : center;
+    margin : 20px auto;
+    margin-left: 220px;
 }
