@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+ import { Component } from '@angular/core';
 
 export interface PeriodElement{
   Name : any;
@@ -73,6 +73,8 @@ export class AppComponent {
   displayedColumns: any[] = ['Name', 'Email', 'Location'];
   booleanValue : any=false;
 
+
+  //sorting
   onsort(colName : any, boolean : any){
     if(boolean == true){
       this.values.sort((a : any, b: any) => a[colName] < b[colName] ? 1 :
@@ -86,6 +88,25 @@ export class AppComponent {
     }
   }
 
+  //searching
+  search(){
+    this.values.slice();
+    const filteredUsers : any = [];
+      if(this.searchString != ""){
+        for(const val of this.values){
+          if(val.Name.toLocaleLowerCase().match(this.searchString.toLocaleLowerCase()) ||
+          val.Email.toLocaleLowerCase().match(this.searchString.toLocaleLowerCase())||
+          val.Location.toLocaleLowerCase().match(this.searchString.toLocaleLowerCase())){
+            filteredUsers.push(val);
+          }
+          }
+          this.values=filteredUsers.slice();
+      }
+      else{
+        return this.ngOnInit();
+      }
+  }
+ 
   // Pagination parameters.
   page: number = 1;
   count: number = 4;
