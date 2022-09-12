@@ -13,9 +13,7 @@ export interface PeriodElement{
 export class AppComponent {
   values : any;
   searchString : any; 
-  sortedcolumn : any;
   icon = "&#8645;";
-  searchVal : any;
   ngOnInit(){
     this.values=[
       {
